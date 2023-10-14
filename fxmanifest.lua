@@ -15,3 +15,11 @@ server_scripts {
   'Server/*.lu*',
   'Server/**/*.lu*'
 }
+
+files {
+  'nui/*.html',
+  'nui/**/*.css',
+  'nui/**/*.js'
+}
+
+ui_page 'nui/Nui.html'
