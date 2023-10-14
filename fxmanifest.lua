@@ -2,7 +2,8 @@ fx_version 'cerulean'
 game {'gta5'}
 
 shared_scripts {
-  'Config.lu*'
+  'Config.lu*',
+  'Shared.lu*'
 }
 
 client_scripts {

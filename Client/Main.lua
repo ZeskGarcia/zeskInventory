@@ -14,3 +14,15 @@ if (Config.Framework and string.upper(Config.Framework) == "ESX") then
     end)
   end
 end
+
+CreateThread(function()
+  while (true) do
+    Wait(0) -- Add a Sleep Timeout of 0 ms.
+    
+    -- Open Inventory Key.
+
+    if (Config.Keys.OpenInv.Enabled and IsControlJustPressed(0, Config.Keys.OpenInv.Key)) then
+      Player.Functions.OpenInventory()
+    end
+  end
+end)
