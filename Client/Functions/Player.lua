@@ -2,10 +2,13 @@ Player = {}
 Player.Functions = {}
 
 Player.Functions.OpenInventory = function()
-    if (Config.Framework and Framework and string.upper(Config.Framework) == "ESX") then
-        
-        -- Framework.TriggerServerCallback(GetCurrentResourceName() .. ":", function(pInventory)
-        
-        -- end, 'Player:OpenInventory')
-    end
+    Shared.Functions.triggerServerCallback(GetCurrentResourceName() .. ":getPlayerInventory", function(inventory)
+        if (inventory and inventory.success) then
+            sendNuiMessage('showInventory', {
+                inventoryItems = inventory.response
+            })
+        else
+            print("Failed getting player inventory")
+        end
+    end, '')
 end
