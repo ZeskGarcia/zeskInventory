@@ -10,6 +10,26 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <div class="clearfix borderbox inventoryBox" :style="`${ inventory.name = != ('content-' + inventory.hex) ? 'left: 793px; top: 14px;' : 'left: 51px; top: 16px;' }`" :inventory="inventory.name" v-if="screens.showInventory" holder="0">
+            <div class="header">
+                <div class="label" :style="`background-color: ${Settings.Colors.Inventory}; color: ${Settings.Colors.Label};`">{{ inventory.label }}</div>
+                <div class="close" v-on:click="closeInventory">
+                    <svg viewBox="0 0 1024 1024" class="close-icon">
+                        <path d="M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM512 928c-229.75 0-416-186.25-416-416s186.25-416 416-416 416 186.25 416 416-186.25 416-416 416z"></path>
+                        <path d="M672 256l-160 160-160-160-96 96 160 160-160 160 96 96 160-160 160 160 96-96-160-160 160-160z"></path>
+                    </svg>
+                    {{ Translations.Close }}
+                </div>
+            </div>
+            <div id="st_weight" v-if="inventory.name == ('content-' + inventory.hex)"></div>
+            <div id="f_weight" v-if="inventory.name == ('content-' + inventory.hex)">
+                <div id="in_weight"></div>
+            </div>
+            <div class="clearfix grpelem inventory" :id="inventory.name" :style="`width: ${(59 * inventory.rows)}; grid-template-columns: repeat(${inventory.rows}, 59px); outline-color: ${Settings.Colors.Inventory}`">
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
